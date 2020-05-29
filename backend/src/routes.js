@@ -1,22 +1,22 @@
 const express = require('express');
 
-const OngController = require('./constrollers/OngController');
-const IncidentController = require('./constrollers/IncidentController');
+const TreinadorController = require('./constrollers/TreinadorController');
+const AlunoController = require('./constrollers/AlunoController');
 const ProfileController = require('./constrollers/ProfileController');
-const SessionController = require('./constrollers/SessionController');
+const LoginController = require('./constrollers/LoginController');
 
 const routes = express.Router();
 
-routes.post('/sessions', SessionController.create);
+routes.post('/login', LoginController.create);
 
 
-routes.post('/ongs', OngController.create);
-routes.get('/ongs', OngController.index);
+routes.post('/treinador', TreinadorController.create);
+routes.get('/treinador', TreinadorController.index);
 
 routes.get('/profile', ProfileController.index);
 
-routes.post('/incidents', IncidentController.create);
-routes.get('/incidents', IncidentController.index);
-routes.delete('/incidents/:id', IncidentController.delete);
+routes.post('/alunos', AlunoController.create);
+routes.get('/alunos', AlunoController.index);
+routes.delete('/alunos/:id', AlunoController.delete);
 
 module.exports = routes;  

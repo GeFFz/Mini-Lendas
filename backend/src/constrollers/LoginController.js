@@ -6,15 +6,15 @@ module.exports = {
 
         const {id} = request.body;
 
-        const ong = await connection('ongs')
+        const perfil = await connection('treinador')
         .where('id', id)
         .select('nome')
         .first();
 
-        if (!ong){
-            return response.status(400).json({ error: 'No ONG found with this ID'});
+        if (!perfil){
+            return response.status(400).json({ error: 'ID Inválido.'});
 
         }
-        return response.json(ong);
+        return response.json(perfil);
     }
 }

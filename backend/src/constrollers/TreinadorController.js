@@ -5,23 +5,23 @@ const connection = require('../database/connection');
 module.exports = {
 
     async index(request, response) {
-        const ongs = await connection('ongs').select('*');
+        const treinador = await connection('treinador').select('*');
     
-        return response.json(ongs);
+        return response.json(treinador);
     },
 
 
     async create(request, response){
-        const {nome, email, whatsapp, city, uf} = request.body;
+        const {nome, email, whatsapp, cidade, uf} = request.body;
     
     const id = crypto.randomBytes(4).toString('HEX');
     
-    await connection('ongs').insert({
+    await connection('treinador').insert({
         id,
         nome,
         email,
         whatsapp,
-        city,
+        cidade,
         uf,
     })
     
